@@ -40,7 +40,7 @@ class SubscribeTest(TestCase):
 
 class SubscribePostTest(TestCase):  # Submisão do form
     def setUp(self):
-        data = dict(name='Victor Hugo', cpf='12345678901', email='victorblog410@gmail.com',
+        data = dict(name='Victor Hugo', cpf='12345678901', email='victor-hugopy@outlook.com',
                     phone='81-998832982')
         self.resp = self.client.post('/inscricao/', data)
 
@@ -59,13 +59,13 @@ class SubscribePostTest(TestCase):  # Submisão do form
 
     def test_subscription_email_from(self):
         email = mail.outbox[0]
-        expect = 'victorblog410@gmail.com'
+        expect = 'victor-hugopy@outlook.com'
 
         self.assertEqual(expect, email.from_email)
 
     def test_subscription_email_to(self):
         email = mail.outbox[0]
-        expect = ['victorblog410@gmail.com', 'victorblog410@gmail.com']
+        expect = ['victor-hugopy@outlook.com', 'victor-hugopy@outlook.com']
 
         self.assertEqual(expect, email.to)
 
@@ -74,7 +74,7 @@ class SubscribePostTest(TestCase):  # Submisão do form
 
         self.assertIn('Victor Hugo', email.body)
         self.assertIn('12345678901', email.body)
-        self.assertIn('victorblog410@gmail.com', email.body)
+        self.assertIn('victor-hugopy@outlook.com', email.body)
         self.assertIn('81-998832982', email.body)
 
 
@@ -100,7 +100,7 @@ class SubscribeInvalidPost(TestCase):
 class SubscribeSuccessMessage(TestCase):
     def setUp(self):
         data = dict(name='Victor Hugo', cpf='12345678901',
-                    email='victorblog410@gmail.com', phone='81-998832982')
+                    email='victor-hugopy@outlook.com', phone='81-998832982')
         self.resp = self.client.post('/inscricao/', data, follow=True)
 
     def test_message(self):
