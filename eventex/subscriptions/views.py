@@ -37,7 +37,6 @@ def create(request):
     return HttpResponseRedirect(r('subscriptions:detail', subscription.pk))
 
 
-
 def detail(request, pk):
     try:
         subscription = Subscription.objects.get(pk=pk)
