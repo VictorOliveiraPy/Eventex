@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.test import TestCase
 from eventex.subscriptions.models import Subscription
+from django.shortcuts import resolve_url as r
 
 
 class SubscriptionModelTest(TestCase):
