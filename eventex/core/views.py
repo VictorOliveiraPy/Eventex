@@ -11,3 +11,11 @@ def home(request):
 def speaker_detail(request, slug):
     speaker = get_object_or_404(Speaker, slug=slug)
     return render(request, 'core/speaker_detail.html', {'speaker': speaker})
+
+
+def talk_list(request):
+    context = {
+        'morning_talks': None,
+        'afternoon_talks': None,
+    }
+    return render(request, 'core/talk_list.html', context)
