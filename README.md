@@ -35,7 +35,7 @@ heroku create minhainstancia
 heroko config:push
 heroku config:set SECRET_KEY=`python contrib/secret_gen.py`
 heroku config:set DEBUG=False
-# Configro o emil
+# Configure o emil
 git push heroku master --force
 
 ````
