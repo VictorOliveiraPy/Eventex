@@ -39,6 +39,9 @@ class TalkModelTest(TestCase):
         field = Talk._meta.get_field('start')
         self.assertTrue(field.null)
 
+    def test_ordering(self):
+        self.assertListEqual(['start'], Talk._meta.ordering)
+
 
 class PeriodManagerTest(TestCase):
     def setUp(self):
@@ -78,10 +81,13 @@ class CourseModelTest(TestCase):
             slug='henrique-bastos',
             website='http://henriquebastos.net'
         )
-        self.assertEqual(1,  self.course.speakers.count())
+        self.assertEqual(1, self.course.speakers.count())
 
     def test_str(self):
         self.assertEqual('Título do Curso', str(self.course))
 
     def test_manager(self):
         self.assertIsInstance(Course.objects, PeriodManager)
+
+    def test_ordering(self):
+        self.assertListEqual(['start'], Course._meta.ordering)
