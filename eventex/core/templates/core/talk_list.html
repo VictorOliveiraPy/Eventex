@@ -6,16 +6,23 @@
         <h2>Manha</h2>
         {% for talk in morning_talks %}
         {% include 'core/talk_list_snippet.html' with talk=talk only %}
-            {% empty %}
-            <p>Ainda não existem palestras de manhã.</p>
+        {% empty %}
+        <p>Ainda não existem palestras de manhã.</p>
         {% endfor %}
 
         <h2>Tarde</h2>
          {% for talk in afternoon_talks %}
          {% include 'core/talk_list_snippet.html' with talk=talk only %}
          {% empty %}
-            <p>Ainda não existem palestras de tarde.</p>
+         <p>Ainda não existem palestras de tarde.</p>
          {% endfor %}
+
+
+        <h2>Mini-cursos</h2>
+        {% for course in courses %}
+        {% include 'core/talk_list_snippet.html' with talk=course only %}
+        {% endfor %}
+
     </div>
 </section>
 {% endblock content %}
